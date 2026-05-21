@@ -1,65 +1,87 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
+import { projects } from '@/lib/data'
 
-export default function Home() {
+export default function HomePage() {
+  const recent = projects.slice(0, 3)
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* HERO */}
+      <section className="relative bg-stone-900 h-[560px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 opacity-20"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #d9bc94 0, #d9bc94 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <p className="text-amber-600 text-xs uppercase tracking-[3px] mb-4">
+            Carpintería artesanal · Madrid
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h1 className="font-playfair text-5xl text-white leading-tight mb-4">
+            Madera que<br />
+            <em className="text-amber-200">cuenta historias</em>
+          </h1>
+          <p className="text-stone-300 text-base font-light max-w-md mb-8 leading-relaxed">
+            Creamos muebles a medida y restauramos piezas únicas con técnicas transmitidas de generación en generación.
+          </p>
+          <Link
+            href="/proyectos"
+            className="inline-block bg-amber-700 hover:bg-amber-800 text-white text-sm uppercase tracking-widest px-7 py-3 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Ver proyectos
+          </Link>
         </div>
-      </main>
-    </div>
-  );
+        <div className="absolute right-16 bottom-10 w-24 h-24 rounded-full border border-white/20 flex flex-col items-center justify-center text-amber-200">
+          <span className="font-playfair text-3xl font-semibold">28</span>
+          <span className="text-xs tracking-widest text-stone-400">años</span>
+        </div>
+      </section>
+
+      {/* SERVICIOS */}
+      <section className="bg-stone-900 py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-amber-600 text-xs uppercase tracking-[3px] mb-6">Servicios</p>
+          <div className="grid grid-cols-3 gap-px bg-stone-700">
+            {[
+              { title: 'Muebles a medida', desc: 'Diseño y fabricación personalizada adaptada a cada espacio y necesidad.' },
+              { title: 'Restauración', desc: 'Recuperamos el esplendor de piezas antiguas con técnicas originales.' },
+              { title: 'Carpintería estructural', desc: 'Soluciones técnicas para reformas, escaleras y elementos de construcción.' },
+            ].map((s) => (
+              <div key={s.title} className="bg-stone-50 p-8">
+                <h3 className="font-playfair text-lg text-stone-900 mb-2">{s.title}</h3>
+                <p className="text-stone-500 text-sm font-light leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROYECTOS RECIENTES */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <p className="text-amber-600 text-xs uppercase tracking-[3px] mb-2">Portfolio</p>
+        <h2 className="font-playfair text-3xl text-stone-900 mb-8">
+          Proyectos <em className="text-amber-700">recientes</em>
+        </h2>
+        <div className="grid grid-cols-3 gap-6">
+          {recent.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/proyectos/${project.slug}`}
+              className="group border border-stone-200 hover:-translate-y-1 transition-transform overflow-hidden"
+            >
+              <div className="h-48 bg-amber-50 flex items-center justify-center text-4xl">
+                🪵
+              </div>
+              <div className="p-4 bg-white">
+                <h3 className="font-playfair text-base text-stone-900 mb-1">{project.title}</h3>
+                <p className="text-stone-400 text-xs">{project.category} · {project.year}</p>
+                <span className="inline-block mt-2 text-xs px-2 py-1 bg-amber-50 text-amber-700 uppercase tracking-wider">
+                  Ver proyecto
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
+  )
 }
