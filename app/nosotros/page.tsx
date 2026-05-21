@@ -41,8 +41,8 @@ export default function NosotrosPage() {
           </p>
           <div className="border-l-2 border-amber-200 pl-6 space-y-6">
             {[
-              { year: '1996', text: 'Apertura del primer taller en La Latina. Especialización en restauración de muebles del siglo XIX.' },
-              { year: '2004', text: 'Ampliación con nueva nave en Vallecas. Inicio de la línea de muebles a medida.' },
+              { year: '1996', text: 'Apertura del primer taller en el Centro de Almería. Especialización en restauración de muebles del siglo XIX.' },
+              { year: '2004', text: 'Ampliación con nueva nave en el Zapillo. Inicio de la línea de muebles a medida.' },
               { year: '2013', text: 'Premio Artesanía Andaluza. Colaboración con estudios de interiorismo de lujo en Almería y Málaga.' },
               { year: '2024', text: 'Diego Artigas asume la dirección. Lanzamiento de web Next.js con ISR y Server Actions.' },
             ].map((item) => (
