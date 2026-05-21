@@ -15,27 +15,23 @@ export default function HomePage() {
           <p className="text-orange-400 text-xs uppercase tracking-[4px] mb-6">
             Carpintería artesanal · Almería
           </p>
-          <h1 className="font-cormorant text-6xl text-white font-light leading-tight mb-6 max-w-2xl">
+          <h1 className="font-cormorant text-4xl md:text-6xl text-white font-light leading-tight mb-6 max-w-2xl">
             Madera que<br />
             <span className="text-orange-300 italic">cuenta historias</span>
           </h1>
           <p className="text-blue-200 text-base font-light max-w-md mb-10 leading-relaxed">
             Creamos muebles a medida y restauramos piezas únicas con técnicas transmitidas de generación en generación bajo el sol de Almería.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/proyectos"
-              className="bg-orange-500 hover:bg-orange-600 text-white text-xs uppercase tracking-widest px-8 py-4 transition-colors">
+              className="bg-orange-500 hover:bg-orange-600 text-white text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
               Ver proyectos
             </Link>
             <Link href="/contacto"
-              className="border border-blue-400 text-blue-200 hover:border-white hover:text-white text-xs uppercase tracking-widest px-8 py-4 transition-colors">
+              className="border border-blue-400 text-blue-200 hover:border-white hover:text-white text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
               Contactar
             </Link>
           </div>
-        </div>
-        <div className="absolute right-16 bottom-10 text-right">
-          <p className="font-cormorant text-7xl text-white/10 font-semibold">28</p>
-          <p className="text-blue-400 text-xs tracking-widest uppercase">años de oficio</p>
         </div>
       </section>
 
@@ -43,10 +39,8 @@ export default function HomePage() {
       <section className="py-20 px-6 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
           <p className="text-orange-500 text-xs uppercase tracking-[4px] mb-3">Servicios</p>
-          <h2 className="font-cormorant text-4xl text-blue-950 mb-12">
-            Lo que hacemos
-          </h2>
-          <div className="grid grid-cols-3 gap-8">
+          <h2 className="font-cormorant text-4xl text-blue-950 mb-12">Lo que hacemos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: 'Muebles a medida', desc: 'Diseño y fabricación personalizada adaptada a cada espacio y necesidad del cliente.', num: '01' },
               { title: 'Restauración', desc: 'Recuperamos el esplendor de piezas antiguas respetando sus técnicas y materiales originales.', num: '02' },
@@ -66,10 +60,8 @@ export default function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-orange-500 text-xs uppercase tracking-[4px] mb-3">Portfolio</p>
-          <h2 className="font-cormorant text-4xl text-blue-950 mb-12">
-            Proyectos recientes
-          </h2>
-          <div className="grid grid-cols-3 gap-6">
+          <h2 className="font-cormorant text-4xl text-blue-950 mb-12">Proyectos recientes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {recent.map((project) => (
               <Link key={project.slug} href={`/proyectos/${project.slug}`}
                 className="group overflow-hidden border border-neutral-100 hover:border-orange-200 transition-colors">

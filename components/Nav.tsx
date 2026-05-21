@@ -4,10 +4,10 @@ export default function Nav() {
   return (
     <header className="bg-white border-b border-neutral-100 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-cormorant text-blue-950 text-2xl font-semibold tracking-wide">
+        <Link href="/" className="font-cormorant text-blue-950 text-2xl font-semibold tracking-wide shrink-0">
           Los Artesanos
         </Link>
-        <nav className="flex gap-8">
+        <nav className="flex gap-4 md:gap-8 overflow-x-auto">
           {[
             { href: '/', label: 'Inicio' },
             { href: '/nosotros', label: 'Nosotros' },
@@ -17,7 +17,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-neutral-500 text-xs uppercase tracking-widest hover:text-blue-950 transition-colors"
+              className="text-neutral-500 text-xs uppercase tracking-widest hover:text-blue-950 transition-colors whitespace-nowrap"
             >
               {link.label}
             </Link>
